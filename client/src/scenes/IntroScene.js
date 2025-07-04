@@ -11,7 +11,7 @@ class IntroScene extends Phaser.Scene {
         this.load.image('player', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAFklEQVR42mNk+M9QzzBKmxgNgwGjYQAAKv4D/TLT4LwAAAAASUVORK5CYII=');
         
         // Load background music if available
-        this.load.audio('background', '/sounds/background.mp3');
+        this.load.audio('background', 'sounds/background.mp3');
         
         // Create a simple player sprite as a colored rectangle
         this.add.graphics()

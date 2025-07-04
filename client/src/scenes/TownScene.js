@@ -18,8 +18,8 @@ class TownScene extends Phaser.Scene {
         this.createPlaceholderSprites();
         
         // Load sound effects
-        this.load.audio('interact', '/sounds/hit.mp3');
-        this.load.audio('complete', '/sounds/success.mp3');
+        this.load.audio('interact', 'sounds/hit.mp3');
+        this.load.audio('complete', 'sounds/success.mp3');
     }
 
     createPlaceholderSprites() {
