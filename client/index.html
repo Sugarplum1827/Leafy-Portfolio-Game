@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jake's Portfolio - Interactive RPG</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <div id="loading-screen">
+            <div class="loading-text">Loading Jake's Portfolio...</div>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+    
+    <!-- Phaser 3 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
+    
+    <!-- Game scripts -->
+    <script src="/src/utils/DialogueSystem.js"></script>
+    <script src="/src/data/dialogues.js"></script>
+    <script src="/src/scenes/IntroScene.js"></script>
+    <script src="/src/scenes/TownScene.js"></script>
+    <script src="/src/main.js"></script>
+</body>
+</html>
