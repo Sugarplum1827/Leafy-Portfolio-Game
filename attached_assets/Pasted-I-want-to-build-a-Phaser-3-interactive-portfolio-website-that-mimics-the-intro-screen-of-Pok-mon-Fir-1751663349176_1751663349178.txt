@@ -1,0 +1,93 @@
+I want to build a Phaser 3 interactive portfolio website that mimics the intro screen of Pokémon Fire Red, followed by a top-down RPG map where users can explore and interact with NPCs to learn about me.
+
+Here is the exact specification:
+
+🎬 1. Intro Scene (Mimics Fire Red)
+The screen is black, and then fades in to show a single NPC (me, Jake) in the center of the screen, standing still.
+
+Above or next to the NPC is text that says:
+
+vbnet
+Copy
+Edit
+Jake's Portfolio
+Press ENTER to Start
+Text should flicker gently like a GBA intro.
+
+Pressing Enter will transition (with fade effect) to the main world map.
+
+🗺️ 2. Main Town Map (Like Pewter Town)
+Build a tile-based RPG map with collisions using Phaser 3 and a Tiled tilemap. It includes:
+
+Area	Description
+🌸 Flower field + signpost	Shows my Introduction
+🏠 Black roof house #1	NPC with Reference #1
+🏠 Black roof house #2	NPC with Reference #2
+🟫 Brown roof house	NPC with Work Experience
+🔴 Red roof building	NPC with Organizations Joined
+🔵 Blue roof building	NPC with Certificates & Diplomas
+🟪 Big purple roof museum	NPC with Projects
+🟪 Small purple roof hut (beside museum)	Final NPC (a clone of me) that says:
+
+“This is my portfolio. Thank you for exploring.”
+
+After that message finishes, the game resets to the intro screen
+
+🎮 3. Controls
+W, A, S, D = Movement
+
+Face NPC and press Spacebar = Dialogue starts
+
+Press Spacebar again to continue through messages
+
+🧍 4. NPC Interaction System
+Only when the player is facing an NPC closely
+
+Shows dialog box at bottom of screen
+
+Typing animation (Pokémon-style)
+
+Each NPC has a unique set of dialogue lines (text can be in a JSON or array)
+
+🧰 5. Project Structure
+Please create a complete Phaser 3 project:
+
+bash
+Copy
+Edit
+index.html
+style.css
+main.js
+/scenes/
+    IntroScene.js
+    TownScene.js
+/assets/
+    /tilesets/
+    /sprites/
+    /maps/
+Use placeholder assets (GBA-style tiles, character sprite, NPC sprites)
+
+Use Phaser 3 from CDN (via index.html)
+
+✅ Additional Requirements:
+All code must run in browser (no backend)
+
+Phaser version must be latest and stable
+
+Use Phaser’s Scene system to separate Intro and Town map
+
+Easy to customize later (use placeholder text now)
+
+Collision system in place
+
+Simple retro pixel font optional
+
+Begin by:
+
+Creating the IntroScene where Jake's NPC says “Jake's Portfolio – Press ENTER to Start”
+
+On Enter press, transition to TownScene with tilemap and character movement
+
+Add NPCs and interaction logic
+
+I want a Pokémon Fire Red–style experience turned into a portfolio game.
