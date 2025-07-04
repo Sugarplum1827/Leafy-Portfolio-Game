@@ -223,13 +223,13 @@ class TownScene extends Phaser.Scene {
     createNPCs() {
         const npcData = [
             { x: 120, y: 180, id: "introduction", area: "signpost" },
-            { x: 130, y: 330, id: "reference1", area: "house1" },
-            { x: 230, y: 330, id: "reference2", area: "house2" },
-            { x: 630, y: 230, id: "experience", area: "house3" },
-            { x: 630, y: 430, id: "organizations", area: "building1" },
-            { x: 130, y: 530, id: "certificates", area: "building2" },
-            { x: 530, y: 100, id: "projects", area: "museum" },
-            { x: 640, y: 80, id: "final", area: "hut" },
+            { x: 132, y: 360, id: "reference1", area: "house1" },  // At house entrance
+            { x: 232, y: 360, id: "reference2", area: "house2" },  // At house entrance
+            { x: 632, y: 260, id: "experience", area: "house3" },  // At house entrance
+            { x: 632, y: 460, id: "organizations", area: "building1" }, // At building entrance
+            { x: 132, y: 560, id: "certificates", area: "building2" }, // At building entrance
+            { x: 548, y: 125, id: "projects", area: "museum" },    // At museum entrance
+            { x: 644, y: 95, id: "final", area: "hut" },           // At hut entrance
         ];
 
         npcData.forEach((npcInfo) => {
@@ -242,6 +242,11 @@ class TownScene extends Phaser.Scene {
             npc.body.setImmovable(true);
             npc.npcId = npcInfo.id;
             npc.area = npcInfo.area;
+            
+            // Make NPCs slightly larger and more visible
+            npc.setScale(1.2);
+            npc.setTint(0x87CEEB); // Light blue tint to distinguish from player
+            
             this.npcs.push(npc);
         });
     }
@@ -260,11 +265,10 @@ class TownScene extends Phaser.Scene {
         // Add collision between player and buildings
         this.physics.add.collider(this.player, this.buildings, null, null, this);
         
-        // Add collision between player and NPCs
-        this.physics.add.collider(this.player, this.npcs, null, null, this);
+        // Note: No collision with NPCs - players can walk through them to interact
         
         console.log('Collisions set up between player and', this.buildings.length, 'buildings');
-        console.log('Collisions set up between player and', this.npcs.length, 'NPCs');
+        console.log('NPCs positioned near building entrances:', this.npcs.length, 'NPCs');
     }
 
     setupInput() {
@@ -344,7 +348,7 @@ class TownScene extends Phaser.Scene {
                 npc.y,
             );
 
-            if (distance < 40) {
+            if (distance < 50) {
                 // Check if player is facing the NPC
                 const playerDirection = this.player.direction || "down";
                 const isCorrectDirection = this.isPlayerFacingNPC(
