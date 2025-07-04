@@ -207,9 +207,8 @@ class TownScene extends Phaser.Scene {
             );
             buildingSprite.setOrigin(0);
             
-            // Add physics body for collision BEFORE adding to array
+            // Add physics body for collision (true = static body)
             this.physics.add.existing(buildingSprite, true);
-            buildingSprite.body.setImmovable(true);
             
             this.buildings.push(buildingSprite);
         });
@@ -218,7 +217,6 @@ class TownScene extends Phaser.Scene {
         const signpost = this.add.image(100, 150, "signpost");
         signpost.setOrigin(0);
         this.physics.add.existing(signpost, true);
-        signpost.body.setImmovable(true);
         this.buildings.push(signpost);
     }
 
