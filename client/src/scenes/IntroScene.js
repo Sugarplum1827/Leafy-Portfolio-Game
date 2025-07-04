@@ -62,7 +62,7 @@ class IntroScene extends Phaser.Scene {
 
     showText() {
         // Create title text
-        this.titleText = this.add.text(400, 350, "Jake's Portfolio", {
+        this.titleText = this.add.text(400, 350, "Jacob's Portfolio", {
             fontSize: '32px',
             fontFamily: 'Orbitron, monospace',
             color: '#FFFFFF',

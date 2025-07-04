@@ -3,14 +3,14 @@ I want to build a Phaser 3 interactive portfolio website that mimics the intro s
 Here is the exact specification:
 
 🎬 1. Intro Scene (Mimics Fire Red)
-The screen is black, and then fades in to show a single NPC (me, Jake) in the center of the screen, standing still.
+The screen is black, and then fades in to show a single NPC (me, Jacob) in the center of the screen, standing still.
 
 Above or next to the NPC is text that says:
 
 vbnet
 Copy
 Edit
-Jake's Portfolio
+Jacob's Portfolio
 Press ENTER to Start
 Text should flicker gently like a GBA intro.
 
@@ -84,7 +84,7 @@ Simple retro pixel font optional
 
 Begin by:
 
-Creating the IntroScene where Jake's NPC says “Jake's Portfolio – Press ENTER to Start”
+Creating the IntroScene where Jacob's NPC says “Jacob's Portfolio – Press ENTER to Start”
 
 On Enter press, transition to TownScene with tilemap and character movement
 

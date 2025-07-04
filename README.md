@@ -1,6 +1,6 @@
-# Jake's Interactive Portfolio Game
+# Jacob's Interactive Portfolio Game
 
-A Phaser 3-powered interactive portfolio that recreates the classic Pokémon Fire Red experience. Explore a retro RPG world to discover Jake's professional background through engaging NPC interactions.
+A Phaser 3-powered interactive portfolio that recreates the classic Pokémon Fire Red experience. Explore a retro RPG world to discover Jacob's professional background through engaging NPC interactions.
 
 ## 🎮 Game Features
 
@@ -88,4 +88,4 @@ The game showcases comprehensive professional information including:
 
 ---
 
-*Experience Jake's portfolio in a whole new way - where professional meets playful!*
+*Experience Jacob's portfolio in a whole new way - where professional meets playful!*
