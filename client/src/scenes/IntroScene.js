@@ -47,6 +47,13 @@ class IntroScene extends Phaser.Scene {
         // Set up input
         this.enterKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
         
+        // Add click/touch input as alternative
+        this.input.on('pointerdown', () => {
+            if (this.fadeCompleted) {
+                this.transitionToTown();
+            }
+        });
+        
         // Add background music
         if (this.sound.get('background')) {
             this.backgroundMusic = this.sound.add('background', { loop: true, volume: 0.3 });
@@ -66,7 +73,7 @@ class IntroScene extends Phaser.Scene {
         this.titleText.setOrigin(0.5);
         
         // Create instruction text
-        this.instructionText = this.add.text(400, 400, 'Press ENTER to Start', {
+        this.instructionText = this.add.text(400, 400, 'Press ENTER or Click to Start', {
             fontSize: '18px',
             fontFamily: 'Orbitron, monospace',
             color: '#FFFF00',
@@ -95,7 +102,13 @@ class IntroScene extends Phaser.Scene {
     update() {
         // Check for Enter key press
         if (this.fadeCompleted && this.enterKey && Phaser.Input.Keyboard.JustDown(this.enterKey)) {
+            console.log('Enter key pressed, transitioning to town...');
             this.transitionToTown();
+        }
+        
+        // Debug logging
+        if (this.fadeCompleted && this.enterKey && this.enterKey.isDown) {
+            console.log('Enter key is down but not triggering JustDown');
         }
     }
 

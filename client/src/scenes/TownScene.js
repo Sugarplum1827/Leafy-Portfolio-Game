@@ -296,6 +296,7 @@ class TownScene extends Phaser.Scene {
                 
                 if (isCorrectDirection) {
                     this.currentInteractionNPC = npc;
+                    console.log(`Can interact with NPC: ${npc.npcId}`);
                     // Visual feedback could be added here
                 }
             }
@@ -321,6 +322,11 @@ class TownScene extends Phaser.Scene {
     }
 
     handleSpacePress() {
+        console.log('Space pressed!', {
+            hasNPC: !!this.currentInteractionNPC,
+            dialogueActive: this.dialogueSystem.isActive
+        });
+        
         if (this.currentInteractionNPC && !this.dialogueSystem.isActive) {
             // Play interaction sound
             if (this.interactSound) {
@@ -329,6 +335,7 @@ class TownScene extends Phaser.Scene {
             
             // Start dialogue
             const npcId = this.currentInteractionNPC.npcId;
+            console.log(`Starting dialogue with ${npcId}`);
             this.dialogueSystem.startDialogue(npcId);
             
             // Check if this is the final NPC
@@ -340,6 +347,7 @@ class TownScene extends Phaser.Scene {
             }
         } else if (this.dialogueSystem.isActive) {
             // Continue dialogue
+            console.log('Continuing dialogue...');
             this.dialogueSystem.nextMessage();
         }
     }
