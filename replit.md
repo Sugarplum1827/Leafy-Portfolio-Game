@@ -109,8 +109,15 @@ This is a full-stack web application built with Express.js backend and React fro
 
 ## Changelog
 
-Changelog:
-- July 04, 2025. Initial setup
+Recent Changes:
+- July 04, 2025: Completed Phaser 3 interactive portfolio game
+  - Implemented Pokemon Fire Red-style intro scene with character and flickering text
+  - Created explorable town scene with 8 NPCs in various buildings
+  - Added WASD/arrow key movement with collision detection
+  - Built dialogue system with Pokemon-style typing animation
+  - Integrated complete portfolio content through NPC interactions
+  - Added game completion cycle that returns to intro screen
+- July 04, 2025: Initial setup
 
 ## User Preferences
 
