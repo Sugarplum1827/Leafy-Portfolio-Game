@@ -145,6 +145,9 @@ class TownScene extends Phaser.Scene {
         // Create player
         this.createPlayer();
 
+        // Set up collision after all objects are created
+        this.setupCollisions();
+        
         // Set up input
         this.setupInput();
 
@@ -203,16 +206,19 @@ class TownScene extends Phaser.Scene {
                 building.sprite,
             );
             buildingSprite.setOrigin(0);
-            this.buildings.push(buildingSprite);
-
-            // Add physics body for collision
+            
+            // Add physics body for collision BEFORE adding to array
             this.physics.add.existing(buildingSprite, true);
+            buildingSprite.body.setImmovable(true);
+            
+            this.buildings.push(buildingSprite);
         });
 
         // Add signpost in flower field
         const signpost = this.add.image(100, 150, "signpost");
         signpost.setOrigin(0);
         this.physics.add.existing(signpost, true);
+        signpost.body.setImmovable(true);
         this.buildings.push(signpost);
     }
 
@@ -246,12 +252,21 @@ class TownScene extends Phaser.Scene {
         this.player = this.physics.add.sprite(400, 300, "player-sprite");
         this.player.setCollideWorldBounds(true);
         this.player.body.setSize(20, 20);
-
-        // Add collision with buildings
-        this.physics.add.collider(this.player, this.buildings);
-
-        // Add collision with NPCs
-        this.physics.add.collider(this.player, this.npcs);
+        this.player.body.setOffset(2, 2); // Center the collision body
+        
+        // Enable collision debugging
+        console.log('Player created with body:', this.player.body);
+    }
+    
+    setupCollisions() {
+        // Add collision between player and buildings
+        this.physics.add.collider(this.player, this.buildings, null, null, this);
+        
+        // Add collision between player and NPCs
+        this.physics.add.collider(this.player, this.npcs, null, null, this);
+        
+        console.log('Collisions set up between player and', this.buildings.length, 'buildings');
+        console.log('Collisions set up between player and', this.npcs.length, 'NPCs');
     }
 
     setupInput() {
